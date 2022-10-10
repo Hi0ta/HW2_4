@@ -6,17 +6,14 @@ public abstract class Transport{
     private final String brand;
     private final String model;
     private double engineVolume;
-   // private final int productionYear;
-  //  private final String productionCountry;
-   // private String bodyColor;
-    //private int maxSpeed;
+
     public Transport(String brand, String model, double engineVolume) {
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
+        if (brand == null || brand.isBlank()) {
             this.brand = "default";
         } else {
             this.brand = brand;
         }
-        if (model == null || model.isEmpty() || model.isBlank()) {
+        if (model == null || model.isBlank()) {
             this.model = "default";
         } else {
             this.model = model;
@@ -36,6 +33,7 @@ public abstract class Transport{
     }
     public abstract void startMoving ();
     public abstract void finishMovement ();
+    public abstract void printBodyType ();
     @Override
     public String toString() {return brand + " " + model + ", объем двигателя: " + engineVolume + " литра";}
     @Override

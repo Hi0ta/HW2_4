@@ -7,7 +7,7 @@ public class Driver<A extends Transport> {
     private int experience;
 
     public Driver(String fullName, String tupeLicense, int experience) {
-        if (fullName == null || fullName.isEmpty() || fullName.isBlank()) {
+        if (fullName == null || fullName.isBlank()) {
             this.fullName = "ФИО должно быть заполнено!!";
         } else {
             this.fullName = fullName;
@@ -23,7 +23,7 @@ public class Driver<A extends Transport> {
     public void setTupeLicense(String tupeLicense) {
         if (tupeLicense.length() != 1){
             System.out.println("категория прав введена неверно");
-        }else if (tupeLicense == "B" || tupeLicense == "C" || tupeLicense == "D") {
+        }else if (tupeLicense.equals("B") || tupeLicense.equals("C") || tupeLicense.equals("D")) {
             this.tupeLicense = tupeLicense;
         } else {
             System.out.println("категория прав введена неверно");
@@ -39,11 +39,11 @@ public class Driver<A extends Transport> {
     public void drive(A transport){
         System.out.println(toString() + " управляет автомобилем: " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
     }
-    void startMoving () {System.out.println("Начать движение");}
-    void stop (){System.out.println("Остановиться");}
-    void refillAvto(){System.out.println("Заправить авто");}
+    void startMoving (A transport) {System.out.println("водитель: " + fullName + " на " + transport.getBrand() + " " + transport.getModel() + " - начал движение");}
+    void stop (A transport){System.out.println("водитель: " + fullName + " на " + transport.getBrand() + " " + transport.getModel()  + " - остановился");}
+    void refillAvto(A transport){System.out.println("водитель: " + fullName + " заправил " + transport.getBrand() + " " + transport.getModel());}
     @Override
-    public String toString() {return "водитель ФИО: " + fullName +", категория прав: " + getTupeLicense() + ", стаж вождения " + experience + " лет";}
+    public String toString() {return "водитель ФИО: " + fullName + ", категория прав: " + getTupeLicense() + ", стаж вождения " + experience + " лет";}
 
 }
 
