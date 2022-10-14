@@ -33,6 +33,20 @@ public enum BodyType {
     }
     @Override
     public String toString() {return "автомобиль: " + super.toString() + ", тип кузова: " + getBodyType();}
+
+    @Override
+    public void passDiagnostic() {
+       if (getRandom(0.0, 1.0) == 0.0) {
+           System.out.println("автомобилем: " + getBrand() + " " + getModel() + " диагностика пройдена");
+           }else {
+           try {
+               throw new RuntimeException("автомобилем: " + getBrand() + " " + getModel() + " диагностика не пройдена");
+           } catch (RuntimeException e){
+               System.out.println(e.getMessage());
+           }
+       }
+    }
+
     @Override
     public void startMoving() {
         System.out.println("Начало движения автомобиля: ");
@@ -52,6 +66,10 @@ public enum BodyType {
     @Override
     public void getBestTime() {
         System.out.println("лучшее время автомобиля: ");
+    }
+    public static double getRandom(double min, double max){
+        double x = (int)(Math.random()*((max-min)+1))+min;
+        return x;
     }
 
 }

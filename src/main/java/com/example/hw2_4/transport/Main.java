@@ -3,7 +3,7 @@ package com.example.hw2_4.transport;
 public class Main {
     public static void main(String[] args) {
         //Car bmw = new Car("BMW", "Z8", 3.0, null);
-        Car lada = new Car("Lada", "Grande",  1.7, Car.BodyType.SEDAN);
+        Car lada = new Car("Lada", "Grande", 1.7, Car.BodyType.SEDAN);
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, null);
         Car kia = new Car("Kia", "Sportage 4 поколение", 2.4, Car.BodyType.CROSSOVER);
         Car hyundai = new Car("Hyundai", "Avante", 1.6, Car.BodyType.HATCHBACK);
@@ -20,9 +20,9 @@ public class Main {
         System.out.println(manB2.toString());
         liaz.infoBus();
         Trucks kamAz = new Trucks("КамАЗ", "5490", 11.97, Trucks.BodyType.N1);
-        Trucks belAz = new Trucks("БелАЗ","75320", 60, Trucks.BodyType.N3);
-        Trucks manT = new Trucks("MAN","TGS 6×6",12.4, Trucks.BodyType.N2);
-        Trucks mazT = new Trucks("МАЗ","5440",14.86,null);
+        Trucks belAz = new Trucks("БелАЗ", "75320", 60, Trucks.BodyType.N3);
+        Trucks manT = new Trucks("MAN", "TGS 6×6", 12.4, Trucks.BodyType.N2);
+        Trucks mazT = new Trucks("МАЗ", "5440", 14.86, null);
         System.out.println(kamAz.toString());
         System.out.println(manT.toString());
         System.out.println(mazT.toString());
@@ -48,5 +48,17 @@ public class Main {
         sergey.startMoving(belAz);
         petr.stop(liaz);
         ivan.refillAvto(audi);
-        }
+        lada.passDiagnostic();
+        audi.passDiagnostic();
+        kia.passDiagnostic();
+        hyundai.passDiagnostic();
+        kamAz.passDiagnostic();
+        belAz.passDiagnostic();
+        manT.passDiagnostic();
+        mazT.passDiagnostic();
+        maz.passDiagnostic();
+        manB.passDiagnostic();
+        manB2.passDiagnostic();
+        liaz.passDiagnostic();
     }
+}

@@ -16,19 +16,30 @@ public class Driver<A extends Transport> {
         this.setExperience(experience);
     }
 
-    public String getFullName() {return fullName;}
-    public String getTupeLicense() {return tupeLicense;}
-    public int getExperience() {return experience;}
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getTupeLicense() {
+        return tupeLicense;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
 
     public void setTupeLicense(String tupeLicense) {
-        if (tupeLicense.length() != 1){
-            System.out.println("категория прав введена неверно");
-        }else if (tupeLicense.equals("B") || tupeLicense.equals("C") || tupeLicense.equals("D")) {
+        if (tupeLicense.length() != 1) {
+                throw new IllegalArgumentException("категория прав введена неверно");
+            //System.out.println("категория прав введена неверно");
+        } else if (tupeLicense.equals("B") || tupeLicense.equals("C") || tupeLicense.equals("D")) {
             this.tupeLicense = tupeLicense;
         } else {
-            System.out.println("категория прав введена неверно");
+                throw new IllegalArgumentException("категория прав введена неверно");
+            // System.out.println("категория прав введена неверно");
         }
     }
+
     public void setExperience(int experience) {
         if (experience <= 0) {
             this.experience = 0;
@@ -36,14 +47,27 @@ public class Driver<A extends Transport> {
             this.experience = experience;
         }
     }
-    public void drive(A transport){
+
+    public void drive(A transport) {
         System.out.println(toString() + " управляет автомобилем: " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
     }
-    void startMoving (A transport) {System.out.println("водитель: " + fullName + " на " + transport.getBrand() + " " + transport.getModel() + " - начал движение");}
-    void stop (A transport){System.out.println("водитель: " + fullName + " на " + transport.getBrand() + " " + transport.getModel()  + " - остановился");}
-    void refillAvto(A transport){System.out.println("водитель: " + fullName + " заправил " + transport.getBrand() + " " + transport.getModel());}
+
+    void startMoving(A transport) {
+        System.out.println("водитель: " + fullName + " на " + transport.getBrand() + " " + transport.getModel() + " - начал движение");
+    }
+
+    void stop(A transport) {
+        System.out.println("водитель: " + fullName + " на " + transport.getBrand() + " " + transport.getModel() + " - остановился");
+    }
+
+    void refillAvto(A transport) {
+        System.out.println("водитель: " + fullName + " заправил " + transport.getBrand() + " " + transport.getModel());
+    }
+
     @Override
-    public String toString() {return "водитель ФИО: " + fullName + ", категория прав: " + getTupeLicense() + ", стаж вождения " + experience + " лет";}
+    public String toString() {
+        return "водитель ФИО: " + fullName + ", категория прав: " + getTupeLicense() + ", стаж вождения " + experience + " лет";
+    }
 
 }
 

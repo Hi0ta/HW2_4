@@ -45,5 +45,6 @@ public abstract class Transport{
     }
     @Override
     public int hashCode() {return Objects.hash(brand, model, engineVolume);}
+    public abstract void passDiagnostic();
 }
 

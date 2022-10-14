@@ -33,6 +33,20 @@ public final class Trucks extends Transport implements Competing{
     }
     @Override
     public String toString() {return "грузовик: " + super.toString() + ", вместимость: " + getBodyType();}
+
+    @Override
+    public void passDiagnostic() {
+        if (getRandom(0.0, 1.0) == 0.0) {
+            System.out.println("грузовиком: " + getBrand() + " " + getModel() + " диагностика пройдена");
+        }else {
+            try {
+                throw new RuntimeException("грузовиком: " + getBrand() + " " + getModel() + " диагностика не пройдена");
+            } catch (RuntimeException e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
     @Override
     public void startMoving() {System.out.println("Начало движения грузовика: ");}
     @Override
@@ -43,5 +57,10 @@ public final class Trucks extends Transport implements Competing{
     public void getMaxSpeed() {System.out.println("максимальная скорость грузовика: ");}
     @Override
     public void getBestTime() {System.out.println("лучшее время грузовика: ");}
+
+    public static double getRandom(double min, double max){
+        double x = (int)(Math.random()*((max-min)+1))+min;
+        return x;
+    }
 
 }

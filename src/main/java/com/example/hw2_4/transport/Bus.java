@@ -40,15 +40,19 @@ public final class Bus extends Transport implements Competing {
    // public void setBodyType(BodyType bodyType) {this.bodyType = bodyType;}
     @Override
     public String toString() {return "автобус: " + super.toString() + ", вместимость: " + getBodyType();}
+
     @Override
-    public void startMoving() {System.out.println("Начало движения: ");}
+    public void passDiagnostic() {System.out.println("автобусу: " + getBrand() + " " + getModel() + " диагностика не требуется");}
     @Override
-    public void finishMovement() {System.out.println("Окончание движения: ");}
+    public void startMoving() {System.out.println("Начало движения автобуса: ");}
+    @Override
+    public void finishMovement() {System.out.println("Окончание движения автобуса: ");}
     @Override
     public void getPitStop() {System.out.println("здесь был пит-стоп автобуса: ");}
     @Override
     public void getMaxSpeed() {System.out.println("максимальная скорость автобуса: ");}
     @Override
     public void getBestTime() {System.out.println("лучшее время автобуса: ");}
+
 
 }
