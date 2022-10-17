@@ -1,5 +1,7 @@
 package com.example.hw2_4.transport;
 
+import java.util.ArrayList;
+
 public final class Bus extends Transport implements Competing {
     public enum BodyType {
         EXTRA_SMALL("особо малая", "до 10 мест"), SMALL("малая", "до 25 мест"),
@@ -53,6 +55,5 @@ public final class Bus extends Transport implements Competing {
     public void getMaxSpeed() {System.out.println("максимальная скорость автобуса: ");}
     @Override
     public void getBestTime() {System.out.println("лучшее время автобуса: ");}
-
 
 }

@@ -1,6 +1,8 @@
 package com.example.hw2_4.transport;
 
-public final class Trucks extends Transport implements Competing{
+import java.util.ArrayList;
+
+public final class Truck extends Transport implements Competing{
     public enum BodyType {
         N1("до 3,5 тонн"), N2("свыше 3,5 до 12 тонн"), N3("свыше 12 тонн");
         private String capacity;
@@ -11,7 +13,7 @@ public final class Trucks extends Transport implements Competing{
        // public void setCapacity(String capacity) {this.capacity = capacity;}
     }
     private BodyType bodyType;
-    public Trucks(String brand, String model, double engineVolume, BodyType bodyType) {
+    public Truck(String brand, String model, double engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
         this.bodyType = bodyType;
     }
@@ -58,9 +60,5 @@ public final class Trucks extends Transport implements Competing{
     @Override
     public void getBestTime() {System.out.println("лучшее время грузовика: ");}
 
-    public static double getRandom(double min, double max){
-        double x = (int)(Math.random()*((max-min)+1))+min;
-        return x;
-    }
 
 }

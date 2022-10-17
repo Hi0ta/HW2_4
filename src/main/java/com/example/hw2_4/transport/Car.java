@@ -1,5 +1,7 @@
 package com.example.hw2_4.transport;
 
+import java.util.ArrayList;
+
 public final class Car extends Transport implements Competing{
 public enum BodyType {
     SEDAN("седан"), HATCHBACK("хэтчбэк"), COMPARTMENT("купэ"),
@@ -67,9 +69,6 @@ public enum BodyType {
     public void getBestTime() {
         System.out.println("лучшее время автомобиля: ");
     }
-    public static double getRandom(double min, double max){
-        double x = (int)(Math.random()*((max-min)+1))+min;
-        return x;
-    }
+
 
 }
