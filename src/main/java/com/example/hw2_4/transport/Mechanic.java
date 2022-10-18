@@ -39,7 +39,8 @@ public class Mechanic <M extends Transport>{
     }
 
     public void performMaintenance(M m){
-        System.out.println("механик " + getFullName() + " провел техобслуживание " + m.getBrand() + " " + m.getModel());
+        System.out.println("механик " + getFullName() + " приступил к диагностике " + m.getBrand() + " " + m.getModel());
+        m.passDiagnostic();
     }
     public void fixCar(M m){
         System.out.println("механик " + getFullName() + " отремонтировал транспортное средство " + m.getBrand() + " " + m.getModel());

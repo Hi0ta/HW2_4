@@ -26,6 +26,6 @@ public class Sponsor {
     public String toString() {return "спонсор: " + name + ", сумма поддержки: " + amount + " руб.";}
 
     public void sponsorRace(){
-        System.out.println("спонсор: " + getName() + " спонсирует заезд на сумму = " + getAmount() + " руб.");
+        System.out.println("спонсор: " + getName() + " осуществляет финансовую поддержку на сумму = " + getAmount() + " руб.");
     }
 }

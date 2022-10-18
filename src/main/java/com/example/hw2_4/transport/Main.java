@@ -10,26 +10,26 @@ public class Main {
     private static ArrayList<Sponsor> audiSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> kiaSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> hyundaiSponsor = new ArrayList<>(5);
-    private static ArrayList<Mechanic> ladaMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> audiMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> kiaMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> hyundaiMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> ladaMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> audiMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> kiaMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> hyundaiMechanic = new ArrayList<>(3);
     private static ArrayList<Sponsor> mazSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> manBSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> manB2Sponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> liazSponsor = new ArrayList<>(5);
-    private static ArrayList<Mechanic> mazMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> manBMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> manB2Mechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> liazMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> mazMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> manBMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> manB2Mechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> liazMechanic = new ArrayList<>(3);
     private static ArrayList<Sponsor> kamazSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> belazSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> manTSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> mazTSponsor = new ArrayList<>(5);
-    private static ArrayList<Mechanic> kamazMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> belazMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> manTMechanic = new ArrayList<>(3);
-    private static ArrayList<Mechanic> mazTMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> kamazMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> belazMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> manTMechanic = new ArrayList<>(3);
+    private static ArrayList<Mechanic<?>> mazTMechanic = new ArrayList<>(3);
 
 
     public static void main(String[] args) {
@@ -113,7 +113,7 @@ public class Main {
         System.out.println("полный список транспортных средств: " + allTransport);
 
         Sponsor luk = new Sponsor("Лукойл", 100_00.00);
-        luk.sponsorRace();
+        //luk.sponsorRace();
         Sponsor gazprom = new Sponsor("Газпром", 50_000.00);
         Sponsor sberbank = new Sponsor("Сбербанк", 200_000.00);
         Sponsor rosneft = new Sponsor("Роснефть", 90_000.00);
@@ -124,7 +124,7 @@ public class Main {
         allSponsor.add(sberbank);
         allSponsor.add(rosneft);
         allSponsor.add(vtb);
-        System.out.println(allSponsor);
+        System.out.println("полный список спонсоров: " + allSponsor);
 
         allDriver.add(driverB1);
         allDriver.add(driverB2);
@@ -138,20 +138,30 @@ public class Main {
         allDriver.add(driverD2);
         allDriver.add(driverD3);
         allDriver.add(driverD4);
-        System.out.println(allDriver);
-        Mechanic mechanic1 = new Mechanic("Медведев Игорь", "пятое колесо", "легковые авто");
-        Mechanic mechanic2 = new Mechanic("Легостаев Иван", "пятое колесо", "грузовики");
-        Mechanic mechanic3 = new Mechanic("Салеев Семен", "пятое колесо", "автобусы");
-        Mechanic mechanic4 = new Mechanic("Турков Илья", "пятое колесо", "универсал");
-        Mechanic mechanic5 = new Mechanic("Кудымов Федор", "пятое колесо", "универсал");
+        System.out.println("полный список водителей: " + allDriver);
+        Mechanic<Car> mechanic1 = new Mechanic<>("Медведев Игорь", "пятое колесо", "легковые авто");
+        Mechanic<Truck> mechanic2 = new Mechanic<>("Легостаев Иван", "пятое колесо", "грузовики");
+        Mechanic<Bus> mechanic3 = new Mechanic<>("Салеев Семен", "пятое колесо", "автобусы");
+        Mechanic<Transport> mechanic4 = new Mechanic<>("Турков Илья", "пятое колесо", "универсал");
+        Mechanic<Transport> mechanic5 = new Mechanic<>("Кудымов Федор", "пятое колесо", "универсал");
+        System.out.println();
         mechanic1.fixCar(lada);
-        mechanic5.performMaintenance(liaz);
+        mechanic2.fixCar(belAz);
+        mechanic3.fixCar(manB2);
+        System.out.println();
+        mechanic1.performMaintenance(hyundai);
+        mechanic2.performMaintenance(manT);
+        mechanic3.performMaintenance(liaz);
+        mechanic4.performMaintenance(kia);
+        mechanic5.performMaintenance(mazT);
+        mechanic5.performMaintenance(manB);
+        System.out.println();
         allMechanic.add(mechanic1);
         allMechanic.add(mechanic2);
         allMechanic.add(mechanic3);
         allMechanic.add(mechanic4);
         allMechanic.add(mechanic5);
-        System.out.println(allMechanic);
+        System.out.println("полный список механиков: " + allMechanic);
         ladaSponsor.add(luk);
         ladaSponsor.add(sberbank);
         ladaSponsor.add(vtb);
@@ -169,6 +179,27 @@ public class Main {
         driverB2.drive();
         System.out.println("у транспортного средства " + audi.getBrand() + " " + audi.getModel() + " есть спонсоры " + audiSponsor);
         System.out.println("у транспортного средства " + audi.getBrand() + " " + audi.getModel() + " есть команда механиков " + audiMechanic);
+
+        ServiceStation<Car, Truck> piatoeKoleso = new ServiceStation<>("пятое колесо");
+        piatoeKoleso.addAvtoB(lada);
+        piatoeKoleso.addAvtoB(kia);
+        piatoeKoleso.addAvtoB(hyundai);
+        piatoeKoleso.addAvtoB(audi);
+        System.out.println();
+        System.out.println("в очереди на проведение техосмотра " + piatoeKoleso.queueBsize() + " авто");
+        piatoeKoleso.technicalInspectionB();
+        System.out.println("в очереди на проведение техосмотра " + piatoeKoleso.queueBsize() + " авто");
+        piatoeKoleso.technicalInspectionB();
+        piatoeKoleso.technicalInspectionB();
+        piatoeKoleso.technicalInspectionB();
+        //System.out.println("в очереди на проведение техосмотра " + piatoeKoleso.queueBsize() + " авто");
+        ServiceStation<Car, Truck> gigant = new ServiceStation<>("гигант");
+        gigant.addAvtoC(belAz);
+        gigant.addAvtoC(manT);
+        gigant.technicalInspectionC();
+
+
+
 
     }
 }
