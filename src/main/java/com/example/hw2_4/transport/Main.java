@@ -1,11 +1,14 @@
 package com.example.hw2_4.transport;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
-    private static ArrayList<Transport> allTransport = new ArrayList<Transport>(15);
-    private static ArrayList<Driver> allDriver = new ArrayList<Driver>(15);
-    private static ArrayList<Sponsor> allSponsor =  new ArrayList<Sponsor>();
-    private static ArrayList<Mechanic> allMechanic = new ArrayList<Mechanic>();
+    private static Set<Transport> allTransport = new HashSet<>();
+    private static Set<Driver> allDriver = new HashSet<>();
+    private static Set<Sponsor> allSponsor =  new HashSet<>();
+    private static Set<Mechanic> allMechanic = new HashSet<>();
     private static ArrayList<Sponsor> ladaSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> audiSponsor = new ArrayList<>(5);
     private static ArrayList<Sponsor> kiaSponsor = new ArrayList<>(5);
@@ -110,7 +113,16 @@ public class Main {
         allTransport.add(manB);
         allTransport.add(manB2);
         allTransport.add(liaz);
-        System.out.println("полный список транспортных средств: " + allTransport);
+        allTransport.add(hyundai); //повтор для проверки
+        allTransport.add(manB); //повтор для проверки
+        System.out.println("полный список транспортных средств: ");
+        int countT = 1;
+        for (Transport transport: allTransport) {
+            System.out.println(countT + " " + transport.toString());
+            countT++;
+        }
+        System.out.println();
+
 
         Sponsor luk = new Sponsor("Лукойл", 100_00.00);
         //luk.sponsorRace();
@@ -124,7 +136,15 @@ public class Main {
         allSponsor.add(sberbank);
         allSponsor.add(rosneft);
         allSponsor.add(vtb);
-        System.out.println("полный список спонсоров: " + allSponsor);
+        allSponsor.add(sberbank); //повтор для проверки
+        allSponsor.add(rosneft); //повтор для проверки
+        System.out.println("полный список спонсоров: ");
+        int countS = 1;
+        for (Sponsor sponsor: allSponsor) {
+            System.out.println(countS + " " + sponsor.toString());
+            countS++;
+        }
+        System.out.println();
 
         allDriver.add(driverB1);
         allDriver.add(driverB2);
@@ -138,13 +158,22 @@ public class Main {
         allDriver.add(driverD2);
         allDriver.add(driverD3);
         allDriver.add(driverD4);
-        System.out.println("полный список водителей: " + allDriver);
+        allDriver.add(driverB3); //повтор для проверки
+        allDriver.add(driverD2); //повтор для проверки
+        allDriver.add(driverC1); //повтор для проверки
+        System.out.println("полный список водителей: ");
+        int countD = 1;
+        for (Driver driver: allDriver) {
+            System.out.println(countD + " " + driver.toString());
+            countD++;
+        }
+        System.out.println();
         Mechanic<Car> mechanic1 = new Mechanic<>("Медведев Игорь", "пятое колесо", "легковые авто");
         Mechanic<Truck> mechanic2 = new Mechanic<>("Легостаев Иван", "пятое колесо", "грузовики");
         Mechanic<Bus> mechanic3 = new Mechanic<>("Салеев Семен", "пятое колесо", "автобусы");
         Mechanic<Transport> mechanic4 = new Mechanic<>("Турков Илья", "пятое колесо", "универсал");
         Mechanic<Transport> mechanic5 = new Mechanic<>("Кудымов Федор", "пятое колесо", "универсал");
-        System.out.println();
+        /*System.out.println();
         mechanic1.fixCar(lada);
         mechanic2.fixCar(belAz);
         mechanic3.fixCar(manB2);
@@ -155,13 +184,20 @@ public class Main {
         mechanic4.performMaintenance(kia);
         mechanic5.performMaintenance(mazT);
         mechanic5.performMaintenance(manB);
-        System.out.println();
+        System.out.println();*/
         allMechanic.add(mechanic1);
         allMechanic.add(mechanic2);
         allMechanic.add(mechanic3);
         allMechanic.add(mechanic4);
         allMechanic.add(mechanic5);
-        System.out.println("полный список механиков: " + allMechanic);
+        allMechanic.add(mechanic2); //повтор для проверки
+        System.out.println("полный список механиков: ");
+        int countM = 1;
+        for (Mechanic mechanic: allMechanic) {
+            System.out.println(countM + " " + mechanic.toString());
+            countM++;
+        }
+        /*System.out.println();
         ladaSponsor.add(luk);
         ladaSponsor.add(sberbank);
         ladaSponsor.add(vtb);
@@ -196,7 +232,7 @@ public class Main {
         ServiceStation<Car, Truck> gigant = new ServiceStation<>("гигант");
         gigant.addAvtoC(belAz);
         gigant.addAvtoC(manT);
-        gigant.technicalInspectionC();
+        gigant.technicalInspectionC();*/
 
 
 
